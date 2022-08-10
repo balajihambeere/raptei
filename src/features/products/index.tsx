@@ -23,7 +23,7 @@ const Products = (props: ProductsProps): React.ReactElement => {
                     {
                         products && products?.map((item: ProductType) => {
                             return (
-                                <Grid item xs={12} md={3} key={item.productId}>
+                                <Grid item xs={12} md={3} key={item.id}>
                                     <Link href={`/${item.slug}`}  >
                                         <Card style={{ textDecoration: 'none', cursor: 'pointer' }}>
                                             <CardMedia

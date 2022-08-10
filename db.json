@@ -1,7 +1,7 @@
 {
     "products": [
         {
-            "productId": 1,
+            "id": 1,
             "name": "Enzo 2 Refresh Running Shoes",
             "size": 6,
             "model": "",
@@ -11,7 +11,7 @@
             "description": "Discover the Enzo dynasty with the all new Enzo 2, our latest addition to this legacy. This iconic shoe is updated with a TPU jewel piece in at the heel for stand-out branding and a high-performance rubber outsole for superior traction. The Enzo 2 Refresh Running Shoes is made for the athlete who wants to catch all the right attention"
         },
         {
-            "productId": 2,
+            "id": 2,
             "name": "Liberate Nitro Men's Running Shoes",
             "size": 6,
             "model": "",
@@ -21,7 +21,7 @@
             "description": "Free your stride with the featherlight Liberate Nitro Running Shoes, our airiest running shoe yet. With a moisture-draining mono-mesh upper, ultra-cushioning NITRO FOAM midsole and high-traction PUMAGRIP outsole, these shoes are made for swift, agile movement on short-distance runs."
         },
         {
-            "productId": 3,
+            "id": 3,
             "name": "Twitch Runner Unisex Running Shoes",
             "size": 6,
             "model": "",
@@ -31,7 +31,7 @@
             "description": "Go hard or go home in the power performance Twitch Runner. Modelled after PUMA’s celebrated Velocity Nitro, the Twitch Runner boasts clean lines and slick design detail. A bold paint line highlights the cushioned tooling while the mono mesh upper material is breathable and comfortable during both speed and endurance runs. A zoned rubber outsole creates durability and traction clout when you need it, and the midfoot is locked down with internal structural support, which, when combined with the plush SOFTFOAM +, offers a high-comfort ride."
         },
         {
-            "productId": 4,
+            "id": 4,
             "name": "Night Runner Running Shoes",
             "size": 6,
             "model": "",
@@ -41,7 +41,7 @@
             "description": "Hit the city in comfort with the Night Runner. It's lightweight, breathable, and perfect for long days spent on your feet."
         },
         {
-            "productId": 5,
+            "id": 5,
             "name": "Deviate Nitro Winterized Men's Running Shoes",
             "size": 6,
             "model": "",
@@ -51,7 +51,7 @@
             "description": "The PUMA Deviate NITRO Running Shoes just got winterized. This high-performance running shoe is packed with technology for fast runs - no matter the forecast. Deviate features two layers of our lightweight NITRO combined with the carbon composite INNOPLATE. This innovative plate acts as a lever for maximum energy transfer at toe-off.  Together, the foam and plate offer max cushioning with improved efficiency. For long runs that outlast the daylight, the Deviate NITRO WTR delivers high visibility with a reflective aurora print, with a breathable, water-resistant shoe for an effortless run."
         },
         {
-            "productId": 6,
+            "id": 6,
             "name": "one8 Virat Kohli Softride Premier Men's Walking Shoes",
             "size": 6,
             "model": "",
