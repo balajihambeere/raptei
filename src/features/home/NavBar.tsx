@@ -10,6 +10,8 @@ import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import Link from 'next/link';
+import Tooltip from '@mui/material/Tooltip';
+import Avatar from '@mui/material/Avatar';
 
 const pages = ['Products'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -87,7 +89,13 @@ const NavBar = () => {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                    <Link
+                                        key={page}
+                                        // onClick={handleCloseNavMenu}
+                                        href='/'
+                                        style={{ textDecoration: 'none' }}>
+                                        <Typography textAlign="center">{page}</Typography>
+                                    </ Link >
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -128,7 +136,7 @@ const NavBar = () => {
 
                     {/* <Cart anchorElUser={anchorElUser} handleOpenUserMenu={handleOpenUserMenu} handleCloseUserMenu={handleCloseUserMenu} /> */}
 
-                    {/* <Box sx={{ flexGrow: 0 }}>
+                    <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -156,7 +164,7 @@ const NavBar = () => {
                                 </MenuItem>
                             ))}
                         </Menu>
-                    </Box> */}
+                    </Box>
                 </Toolbar>
             </Container>
         </AppBar>
