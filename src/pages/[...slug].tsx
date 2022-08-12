@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import React, { ReactElement, useEffect, useState } from "react";
-import HomeLayout from "../src/features/home/Layout";
-import ProductInfo from "../src/features/products/ProductInfo";
-import { ProductType } from "../src/features/products/ProductType";
+import HomeLayout from "../features/home/Layout";
+import ProductInfo from "../features/products/ProductInfo";
+import { ProductType } from "../features/products/ProductType";
 import { NextPageWithLayout } from "./_app";
 
 const Product: NextPageWithLayout = (): React.ReactElement => {

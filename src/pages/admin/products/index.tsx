@@ -2,7 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { NextPageWithLayout } from '../../_app';
-import DashboardLayout from '../../../src/features/dashboard/Layout';
+import DashboardLayout from '../../../features/dashboard/Layout';
 import useSWR from 'swr';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json())

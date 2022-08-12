@@ -1,7 +1,7 @@
 import { ReactElement } from 'react';
 import { GetStaticProps } from 'next';
-import Products from '../src/features/products';
-import HomeLayout from '../src/features/home/Layout';
+import Products from '../features/products';
+import HomeLayout from '../features/home/Layout';
 import { NextPageWithLayout } from './_app';
 
 const Home: NextPageWithLayout = ({ products }: any) => {
