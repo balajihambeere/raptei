@@ -707,10 +707,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:latest":
+"@types/node@npm:*":
   version: 18.6.5
   resolution: "@types/node@npm:18.6.5"
   checksum: e3e66c9a84b94010a57c1b9dac882c08484278d74f9d120dbe6a3e45d00740d178bd1d34a5deee28197c94b9f4359153b637bab9b305328e865027e9987a0f3d
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^18.7.2":
+  version: 18.7.2
+  resolution: "@types/node@npm:18.7.2"
+  checksum: 422cf95dea09959d0e809d24280b76948f60ea805e20d38f07bf9eeafeb413513b9cc365404766f7752bef9cafb8301a882d9d097f780e13f2bedf507459ebc5
   languageName: node
   linkType: hard
 
@@ -3554,7 +3561,7 @@ __metadata:
     "@mui/material": latest
     "@mui/x-data-grid": ^5.15.1
     "@types/bcrypt": ^5.0.0
-    "@types/node": latest
+    "@types/node": ^18.7.2
     "@types/react": latest
     bcrypt: ^5.0.1
     eslint: latest

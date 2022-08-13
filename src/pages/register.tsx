@@ -13,18 +13,39 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Copyright from '../components/Copyright';
+import { registerApi } from '../features/auth/AuthApi';
+import { RegisterType } from '../features/auth/AuthTypes';
+import { useRouter } from 'next/router';
 
 const theme = createTheme();
 
 const SignUp = (): React.ReactElement => {
+    const router = useRouter();
 
-    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
+        const source = {
             email: data.get('email'),
             password: data.get('password'),
-        });
+            firstName: data.get('firstName'),
+            lastName: data.get('lastName'),
+        };
+
+
+        registerApi(source as RegisterType)
+            .then((data) => {
+                console.log(data);
+                router.push('/signin');
+            })
+            .catch(err => console.log(err));
+
+        // console.log({
+        //     email: data.get('email'),
+        //     password: data.get('password'),
+        //     firstName: data.get('firstName'),
+        //     lastName: data.get('lastName'),
+        // });
     };
 
     return (
@@ -37,8 +58,7 @@ const SignUp = (): React.ReactElement => {
                         display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
-                    }}
-                >
+                    }}>
                     <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
                         <LockOutlinedIcon />
                     </Avatar>

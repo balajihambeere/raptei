@@ -9,7 +9,9 @@ export interface UsersType extends mongoose.Document {
     lastName: string;
     website?: string;
     bioInfo?: string;
+    allowExtraEmails?: boolean;
     image?: string;
     createdDate: Date;
     comparePassword: comparePasswordFunction;
+
 }
