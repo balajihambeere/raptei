@@ -32,20 +32,11 @@ const SignUp = (): React.ReactElement => {
             lastName: data.get('lastName'),
         };
 
-
         registerApi(source as RegisterType)
             .then((data) => {
                 console.log(data);
                 router.push('/signin');
-            })
-            .catch(err => console.log(err));
-
-        // console.log({
-        //     email: data.get('email'),
-        //     password: data.get('password'),
-        //     firstName: data.get('firstName'),
-        //     lastName: data.get('lastName'),
-        // });
+            });
     };
 
     return (
