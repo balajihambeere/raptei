@@ -6,7 +6,6 @@ import dbConnection from '../../../utils/DBConnection';
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<any> {
     const { body, method, } = req;
 
-    console.log(body);
     await dbConnection();
 
     switch (method) {
@@ -14,9 +13,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const { firstName, lastName, email, password } = body
             try {
                 await registerAction(firstName, lastName, email, password);
-                return res.status(200).end({ status: 'success' })
+                return res.status(200).send({ status: 'success' })
             } catch (err) {
-                return res.status(404).end({ error: err });
+                return res.status(404).send({ error: err });
             }
         default:
             res.setHeader("Allow", [

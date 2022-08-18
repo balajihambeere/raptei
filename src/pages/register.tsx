@@ -34,7 +34,6 @@ const SignUp = (): React.ReactElement => {
 
         registerApi(source as RegisterType)
             .then((data) => {
-                console.log(data);
                 router.push('/signin');
             });
     };

@@ -8,7 +8,6 @@ const registerApi = async (register: RegisterType) => {
         headers: requestHeaders,
         body: JSON.stringify({ ...register }),
     });
-    console.log("response", response);
     // if (!response.ok) {
     //     throw new Error(response.statusText);
     // }
