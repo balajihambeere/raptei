@@ -5,12 +5,12 @@ import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 const BrandMobile = (): React.ReactElement => {
     return (<>
-        <ShoppingBasketIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+        {/* <ShoppingBasketIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
         <Typography
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
                 mr: 2,
                 display: { xs: 'flex', md: 'none' },
@@ -21,7 +21,7 @@ const BrandMobile = (): React.ReactElement => {
                 color: 'inherit',
                 textDecoration: 'none',
             }}>
-            FOOTCOMM
+            Raptei
         </Typography>
     </>);
 };

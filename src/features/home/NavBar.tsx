@@ -7,8 +7,12 @@ import NavBarItems from './NavBarItems';
 import BrandMobile from './BrandMobile';
 import NavBarItemsMobile from './NavBarItemsMobile';
 import Settings from './Settings';
+import Badge from '@mui/material/Badge';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
-const pages = ['Products'];
+const pages = ['MENS', 'WOMENS', "KIDS"];
 
 const NavBar = (): React.ReactElement => {
     return (
@@ -19,11 +23,22 @@ const NavBar = (): React.ReactElement => {
                     <NavBarItems pages={pages} />
                     <BrandMobile />
                     <NavBarItemsMobile pages={pages} />
-                    {/* <Cart anchorElUser={anchorElUser} handleOpenUserMenu={handleOpenUserMenu} handleCloseUserMenu={handleCloseUserMenu} /> */}
-                    <Settings />
+                     <Settings />
+                    {/* <IconButton sx={{ p: 0 }} style={{ color: 'white' }}>
+                        <PermIdentityIcon sx={{ display: { xs: 'flex' }, mr: 1 }} />
+                    </IconButton> */}
+                    <IconButton sx={{ p: 0 }} style={{ color: 'white' }}>
+                        <FavoriteIcon sx={{ display: { xs: 'flex' }, mr: 1 }} />
+                    </IconButton>
+                    <Badge badgeContent={2} color="error">
+                        <IconButton sx={{ p: 0 }} style={{ color: 'white' }}>
+                            <ShoppingCartIcon sx={{ display: { xs: 'flex' }, mr: 1 }} />
+                        </IconButton>
+                    </Badge>
+                   
                 </Toolbar>
             </Container>
-        </AppBar>
+        </AppBar >
     );
 };
 export default NavBar;

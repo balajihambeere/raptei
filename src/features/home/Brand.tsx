@@ -20,7 +20,7 @@ const Brand = (): React.ReactElement => {
                 color: 'inherit',
                 textDecoration: 'none',
             }}>
-            FOOTCOMM
+            Raptei
         </Typography>
     </>);
 };

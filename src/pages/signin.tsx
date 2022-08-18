@@ -36,8 +36,8 @@ const SignIn = (): React.ReactElement => {
         });
     };
 
-    return (
-        <ThemeProvider theme={theme}>
+    return (<>
+        {!session && (<ThemeProvider theme={theme}>
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
@@ -103,7 +103,9 @@ const SignIn = (): React.ReactElement => {
                 </Box>
                 <Copyright sx={{ mt: 8, mb: 4 }} />
             </Container>
-        </ThemeProvider>
+        </ThemeProvider>)}
+    </>
+
     );
 }
 export default SignIn;

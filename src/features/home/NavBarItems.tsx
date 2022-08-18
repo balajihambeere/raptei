@@ -57,7 +57,6 @@ const NavBarItems = (props: NavBarItemsProps): React.ReactElement => {
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
                         <Link
                             key={page}
-                            // onClick={handleCloseNavMenu}
                             href='/'
                             style={{ textDecoration: 'none' }}>
                             <Typography textAlign="center">{page}</Typography>
