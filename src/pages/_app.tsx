@@ -8,6 +8,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import createEmotionCache from '../createEmotionCache';
 import theme from '../theme';
+import { SessionProvider } from "next-auth/react";
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -27,7 +28,7 @@ interface MyAppProps extends AppPropsWithLayout {
 
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
-
+  const { session } = pageProps;
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? ((page) => page)
 
@@ -39,8 +40,9 @@ export default function MyApp(props: MyAppProps) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        {getLayout(<Component {...pageProps} />)}
-        {/* <Component {...pageProps} /> */}
+        <SessionProvider session={session}>
+          {getLayout(<Component {...pageProps} />)}
+        </SessionProvider>
       </ThemeProvider>
     </CacheProvider>
   );

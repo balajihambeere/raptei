@@ -13,13 +13,23 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Copyright from '../components/Copyright';
+import { signIn, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const theme = createTheme();
 
 const SignIn = (): React.ReactElement => {
+    const router = useRouter();
+    const { data: session, status } = useSession();
+    console.log("status", status)
+    if (status === "authenticated") {
+        router.push('/admin/dashboard');
+    }
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
+        signIn('credentials', { email: data.get('email'), password: data.get('password') });
         console.log({
             email: data.get('email'),
             password: data.get('password'),
@@ -75,7 +85,7 @@ const SignIn = (): React.ReactElement => {
                             variant="contained"
                             sx={{ mt: 3, mb: 2 }}
                         >
-                            Sign In
+                            Continue
                         </Button>
                         <Grid container>
                             <Grid item xs>
