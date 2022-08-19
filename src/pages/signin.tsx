@@ -21,7 +21,6 @@ const theme = createTheme();
 const SignIn = (): React.ReactElement => {
     const router = useRouter();
     const { data: session, status } = useSession();
-    console.log("status", status)
     if (status === "authenticated") {
         router.push('/admin/dashboard');
     }
@@ -30,10 +29,6 @@ const SignIn = (): React.ReactElement => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         signIn('credentials', { email: data.get('email'), password: data.get('password') });
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
     };
 
     return (<>

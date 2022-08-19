@@ -5,6 +5,7 @@ import { ProductType } from './features/products/ProductType';
 export interface AppContextType {
     cartItems: ProductType[];
     addToCart: (item: ProductType) => void;
+    removeFromCart: (productId: number) => void;
 }
 export const AppContext = createContext({} as AppContextType);
 
@@ -15,25 +16,30 @@ const AppContextWrapper = ({ children }: any) => {
 
     const [state, dispatch] = useReducer(reducer, {} as AppContextType);
 
-    console.log(state);
-    const addToCart = (item: ProductType) => {
-        console.log(item);
+    const addToCart = React.useCallback((item: ProductType) => {
         let products = [];
         if (localStorage.getItem('products')) {
             products = JSON.parse(localStorage.getItem('products') as string);
         }
         products.push(item);
         localStorage.setItem('products', JSON.stringify(products));
-        dispatch(products)
-    }
+        dispatch(products);
+    }, []);
+
+    const removeFromCart = React.useCallback((productId: number) => {
+        let storageProducts = JSON.parse(localStorage.getItem('products') as string);
+        let products = storageProducts.filter((product: ProductType) => product.id !== productId);
+        localStorage.setItem('products', JSON.stringify(products));
+        dispatch(products);
+    }, []);
 
     React.useEffect(() => {
         if (localStorage.getItem('products')) {
             dispatch(JSON.parse(localStorage.getItem('products') as string));
         }
     }, []);
-    
-    return (<AppContext.Provider value={{ ...state, addToCart }}>
+
+    return (<AppContext.Provider value={{ ...state, addToCart, removeFromCart }}>
         {children}
     </AppContext.Provider>);
 }

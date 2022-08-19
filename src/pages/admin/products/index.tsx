@@ -41,7 +41,6 @@ const columns: GridColDef[] = [
 
 const Products: NextPageWithLayout = (): React.ReactElement => {
     const { data, error } = useSWR('http://localhost:3004/products', fetcher);
-    console.log(data)
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>
     return (

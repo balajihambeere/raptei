@@ -28,8 +28,8 @@ const Settings = () => {
     };
     return (<Box sx={{ flexGrow: 0 }}>
         <Tooltip title="Open settings">
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }} style={{ color: 'white' }}>
-                <PermIdentityIcon sx={{ display: { xs: 'flex' }, mr: 1 }} />
+            <IconButton onMouseOver={handleOpenUserMenu} sx={{ p: 0 }} style={{ color: 'white' }}>
+                <PermIdentityIcon sx={{ display: { xs: 'flex' }, mr: 2 }} />
             </IconButton>
         </Tooltip>
         <Menu
