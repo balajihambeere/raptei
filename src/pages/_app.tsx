@@ -9,6 +9,8 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import createEmotionCache from '../createEmotionCache';
 import theme from '../theme';
 import { SessionProvider } from "next-auth/react";
+import { AppContextWrapper } from '../ContextState';
+
 
 export type NextPageWithLayout = NextPage & {
   getLayout?: (page: ReactElement) => ReactNode
@@ -41,7 +43,9 @@ export default function MyApp(props: MyAppProps) {
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <SessionProvider session={session}>
-          {getLayout(<Component {...pageProps} />)}
+          <AppContextWrapper>
+            {getLayout(<Component {...pageProps} />)}
+          </AppContextWrapper>
         </SessionProvider>
       </ThemeProvider>
     </CacheProvider>

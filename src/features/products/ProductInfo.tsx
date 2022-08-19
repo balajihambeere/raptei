@@ -8,12 +8,15 @@ import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
 import { ProductType } from "./ProductType";
+import { useAppContext } from "../../ContextState";
+
 
 interface ProductInfoProps {
     selectedItem: ProductType;
 };
 
 const ProductInfo = (props: ProductInfoProps): ReactElement => {
+    const { addToCart } = useAppContext();
     const { selectedItem } = props;
     const [selectedSize, setSelectedSize] = useState('1');
 
@@ -22,7 +25,7 @@ const ProductInfo = (props: ProductInfoProps): ReactElement => {
     };
 
     const handleAddtoCart = () => {
-        // dispatch(addToCartAction({ ...selectItem, selectSize: Number(selectedSize) }));
+        addToCart({ ...selectedItem, selectSize: Number(selectedSize) });
     }
 
     return (

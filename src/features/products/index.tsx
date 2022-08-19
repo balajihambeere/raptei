@@ -25,7 +25,7 @@ const Products = (props: ProductsProps): React.ReactElement => {
                             return (
                                 <Grid item xs={12} md={3} key={item.id}>
                                     <Link href={`/${item.slug}`}  >
-                                        <Card style={{ textDecoration: 'none', cursor: 'pointer' }}>
+                                        <Card style={{ textDecoration: 'none', cursor: 'pointer', height: '20vw' }}>
                                             <CardMedia
                                                 component="img"
                                                 height="140"
