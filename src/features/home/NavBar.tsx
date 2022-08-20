@@ -35,8 +35,8 @@ const NavBar = (): React.ReactElement => {
                         <FavoriteIcon sx={{ display: { xs: 'flex' }, mr: 2 }} />
                     </IconButton>
                     <Badge badgeContent={cartItems?.length} color="error">
-                        <IconButton sx={{ p: 0 }} style={{ color: 'white' }} onClick={() => router.push('/checkout')}>
-                            <ShoppingCartIcon sx={{ display: { xs: 'flex' }, mr: 2 }} />
+                        <IconButton disabled={!cartItems?.length} sx={{ p: 0 }} style={{ color: 'white' }} onClick={() => router.push('/checkout')}>
+                            <ShoppingCartIcon sx={{ display: { xs: 'flex' }}} />
                         </IconButton>
                     </Badge>
 
