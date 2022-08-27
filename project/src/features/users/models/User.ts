@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
-import { comparePasswordFunction, UsersType } from './UsersTypes';
+import { comparePasswordFunction, UserType } from '../types/User';
 
 const Schema = mongoose.Schema;
 
@@ -39,11 +39,11 @@ UserSchema.set('toJSON', {
     transform: function (ret: { _id?: string; }) { delete ret._id }
 });
 
-function modelAlreadyExists(): mongoose.Model<UsersType> {
+function modelAlreadyExists(): mongoose.Model<UserType> {
     try {
-        return mongoose.model<UsersType>('User');
+        return mongoose.model<UserType>('User');
     } catch (error) {
-        return mongoose.model<UsersType>('User', UserSchema);
+        return mongoose.model<UserType>('User', UserSchema);
     }
 }
-export const UserDocument = modelAlreadyExists();
+export default mongoose.models.User || modelAlreadyExists();

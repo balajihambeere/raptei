@@ -2,7 +2,9 @@ import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
 import type { NextApiRequest, NextApiResponse } from 'next';
 import dbConnection from '../../../shared/utils/DBConnection';
-import { signInAction } from '../../../features/users/UsersActions';
+import { UserType } from '../../../features/users/types/User';
+import User from '../../../features/users/models/User';
+import bcrypt from 'bcrypt';
 
 interface JwtType {
     secret: string
@@ -17,7 +19,14 @@ const options: NextAuthOptions = {
             },
             authorize: async (credentials: Record<"email" | "password", string> | undefined, req) => {
                 await dbConnection();
-                const user = await signInAction(credentials?.email as string, credentials?.password as string);
+                const userFound: UserType | null = await User.findOne({ email: credentials?.email });
+                if (userFound) {
+                    return JSON.parse(JSON.stringify(userFound));
+                }
+                const newUser = new User({ email: credentials?.email, password: credentials?.password });
+                const password = credentials?.password as string;
+                newUser.password = bcrypt.hashSync(password, 10);
+                const user: UserType = await newUser.save();
                 if (Object.keys(user).length > 0 && user.constructor === Object) {
                     return Promise.resolve(user)
                 } else {
@@ -39,13 +48,13 @@ const options: NextAuthOptions = {
         signIn: async () => {
             return Promise.resolve(true)
         },
-        redirect: async ({ url, baseUrl }) => {
+        redirect: async ({ baseUrl }) => {
             return Promise.resolve(baseUrl)
         },
-        session: async ({ session, token, user }) => {
+        session: async ({ session }) => {
             return Promise.resolve(session)
         },
-        jwt: async ({ token, user, account, profile, isNewUser }) => {
+        jwt: async ({ token }) => {
             return Promise.resolve(token)
         },
 

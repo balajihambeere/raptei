@@ -13,14 +13,15 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Copyright from '../components/Copyright';
-import { registerApi } from '../features/auth/AuthApi';
-import { RegisterType } from '../features/auth/AuthTypes';
+import { RegisterType } from '../features/auth/types/Auth';
 import { useRouter } from 'next/router';
+import useAuth from '../features/auth/hooks/useAuth';
 
 const theme = createTheme();
 
 const SignUp = (): React.ReactElement => {
     const router = useRouter();
+    const { registerUser } = useAuth();
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -32,7 +33,7 @@ const SignUp = (): React.ReactElement => {
             lastName: data.get('lastName'),
         };
 
-        registerApi(source as RegisterType)
+        registerUser(source as RegisterType)
             .then((data) => {
                 router.push('/signin');
             });
@@ -129,3 +130,4 @@ const SignUp = (): React.ReactElement => {
     );
 }
 export default SignUp;
+

@@ -1,8 +1,7 @@
-import mongoose from 'mongoose';
 
 export type comparePasswordFunction = (requestedPassword: string, password: string | null) => boolean;
 
-export interface UsersType extends mongoose.Document {
+export interface UserType {
     email: string;
     password: string | null;
     firstName: string;

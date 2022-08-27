@@ -1,7 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { registerAction } from '../../../features/auth/AuthActions';
-import { HttpMethods } from '../../../shared/utils/AppConstants';
+import User from '../../../features/users/models/User';
+import { UserType } from '../../../features/users/types/User';
 import dbConnection from '../../../shared/utils/DBConnection';
+import bcrypt from 'bcrypt';
+import { HttpMethods } from '../../../shared/constants';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<any> {
     const { body, method, } = req;
@@ -12,7 +14,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         case HttpMethods[HttpMethods.POST]:
             const { firstName, lastName, email, password } = body
             try {
-                await registerAction(firstName, lastName, email, password);
+                const userFound: UserType | null = await User.findOne({ email });
+                if (userFound) {
+                    return JSON.parse(JSON.stringify(userFound));
+                }
+                const newUser = new User({ firstName, lastName, email, password });
+                newUser.password = bcrypt.hashSync(password, 10);
+                const user: UserType = await newUser.save();
+                user.password = null;
                 return res.status(200).send({ status: 'success' })
             } catch (err) {
                 return res.status(404).send({ error: err });
