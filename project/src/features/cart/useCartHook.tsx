@@ -1,5 +1,5 @@
 import React from "react";
-import { ProductType } from "../products/ProductType";
+import { ProductType } from "../products/types/Product";
 
 
 const useCart = () => {

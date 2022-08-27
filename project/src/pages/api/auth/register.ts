@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { registerAction } from '../../../features/auth/AuthActions';
-import { HttpMethods } from '../../../utils/AppConstants';
-import dbConnection from '../../../utils/DBConnection';
+import { HttpMethods } from '../../../shared/utils/AppConstants';
+import dbConnection from '../../../shared/utils/DBConnection';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<any> {
     const { body, method, } = req;

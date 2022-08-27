@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import { ProductType } from './ProductType';
+import { ProductType } from './types/Product';
 import Container from '@mui/material/Container';
 import Link from 'next/link';
 
@@ -15,7 +15,6 @@ interface ProductsProps {
 
 const Products = (props: ProductsProps): React.ReactElement => {
     const { products } = props;
-
     return (
         <Container maxWidth="xl">
             <Box sx={{ flexGrow: 1 }}>

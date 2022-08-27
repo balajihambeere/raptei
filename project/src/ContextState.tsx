@@ -1,6 +1,6 @@
 
 import React, { createContext, useContext, useReducer, useState } from 'react';
-import { ProductType } from './features/products/ProductType';
+import { ProductType } from './features/products/types/Product';
 
 export interface AppContextType {
     cartItems: ProductType[];

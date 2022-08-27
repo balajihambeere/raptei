@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { ProductType } from '../products/ProductType';
+import { ProductType } from '../products/types/Product';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import { useAppContext } from '../../ContextState';

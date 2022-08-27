@@ -1,7 +1,7 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
 import type { NextApiRequest, NextApiResponse } from 'next';
-import dbConnection from '../../../utils/DBConnection';
+import dbConnection from '../../../shared/utils/DBConnection';
 import { signInAction } from '../../../features/users/UsersActions';
 
 interface JwtType {

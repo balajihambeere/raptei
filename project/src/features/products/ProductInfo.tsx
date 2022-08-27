@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
-import { ProductType } from "./ProductType";
+import { ProductType } from "./types/Product";
 import { useAppContext } from "../../ContextState";
 
 

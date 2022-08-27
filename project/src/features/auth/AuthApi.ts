@@ -1,5 +1,5 @@
-import { HttpMethods } from "../../utils/AppConstants";
-import { requestHeaders } from "../../utils/helpers/HttpHelpers";
+import { HttpMethods } from "../../shared/utils/AppConstants";
+import { requestHeaders } from "../../shared/utils/HttpHelpers";
 import { RegisterType } from "./AuthTypes";
 
 const registerApi = async (register: RegisterType) => {
